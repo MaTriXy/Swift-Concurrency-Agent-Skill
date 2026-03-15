@@ -19,7 +19,7 @@ Jump to:
 - Stream Lifecycle and Cleanup
 - Buffer Policies
 - Standard Library Integration
-- Limitations (Single Consumer)
+- Limitations
 - When to Use AsyncAlgorithms
 
 ## AsyncSequence

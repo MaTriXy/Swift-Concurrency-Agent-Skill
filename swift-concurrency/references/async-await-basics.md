@@ -15,9 +15,9 @@ Jump to:
 
 - Function Declaration
 - Execution Order
-- Async Let (Parallel Work)
-- URLSession Patterns
-- Bridging Sync to Async
+- Parallel Execution with async let
+- URLSession with Async/Await
+- Migration Strategy
 
 ## Function Declaration
 

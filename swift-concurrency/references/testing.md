@@ -15,7 +15,7 @@ Jump to:
 - Swift Testing (Recommended)
 - Awaiting Async Callbacks
 - Setup and Teardown
-- Flaky Tests / Flake Control
+- Handling Flaky Tests
 - Swift Concurrency Extras
 - XCTest Patterns (Legacy)
 - Memory Management Tests

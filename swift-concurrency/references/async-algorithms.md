@@ -13,12 +13,11 @@ Skip this file if:
 
 Jump to:
 
-- Top 5 Operators
+- Quick Start
 - Time-Based Operators
 - Combining Operators
-- Multi-Consumer (AsyncChannel)
+- Multi-Consumer Scenarios
 - Combine Migration Guide
-- Migration Examples
 - Best Practices
 
 ---

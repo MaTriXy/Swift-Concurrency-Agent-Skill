@@ -18,7 +18,7 @@ Jump to:
 - Working Without DAOs (NSManagedObjectID)
 - Bridging Closures to Async
 - Custom Actor Executor (Advanced)
-- Default MainActor Isolation Conflicts
+- Default MainActor Isolation
 - SwiftUI Integration
 - Common Mistakes
 
