@@ -271,7 +271,38 @@ if Task.isCancelled {
 }
 ```
 
-### 5. Embrace parallelism
+### 5. Keep delay work off the main actor
+
+If the task only needs the main actor for the final mutation, do not start the whole retry flow on `@MainActor`.
+
+```swift
+// ❌ Waits to enter MainActor, then suspends immediately
+registrationRetryTask = Task { @MainActor [weak self] in
+    try? await Task.sleep(for: .milliseconds(100))
+    guard let self else { return }
+    self.registrationRetryTask = nil
+    self.updateConnectedTargetWindow()
+}
+```
+
+The delay itself is not UI work. Starting on `@MainActor` adds an avoidable executor wait before the task even reaches `Task.sleep`.
+
+```swift
+// ✅ Sleep off-main, hop back only for the UI-owned work
+registrationRetryTask = Task { @concurrent [weak self] in
+    try? await Task.sleep(for: .milliseconds(100))
+    guard let self else { return }
+
+    await MainActor.run {
+        self.registrationRetryTask = nil
+        self.updateConnectedTargetWindow()
+    }
+}
+```
+
+Use this pattern for delayed retries, backoff, and timer-like work where only the final state change is UI-owned.
+
+### 6. Embrace parallelism
 
 ```swift
 // ❌ Sequential
